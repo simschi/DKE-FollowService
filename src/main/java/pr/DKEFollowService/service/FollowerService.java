@@ -15,12 +15,12 @@ public class FollowerService {
     @Autowired
     FollowerRepository followerRepository;
 
-    public Collection<User> getAllFollowers(String user) {
-        return followerRepository.getAllFollowers(user);
+    public Collection<User> getAllFollowers(String email) {
+        return followerRepository.getAllFollowers(email);
     }
 
-    public Collection<User> getAllFollowedUsers(String user) {
-        return followerRepository.getAllFollowedUsers(user);
+    public Collection<User> getAllFollowedUsers(String email) {
+        return followerRepository.getAllFollowedUsers(email);
     }
 
     public Collection<User> getAllUsers() {
@@ -34,12 +34,12 @@ public class FollowerService {
     public void addFollowRelationship(User[] users) {
         User fromUser = users[0];
         User toUser = users[1];
-        followerRepository.addFollowRelationship(fromUser.getUsername(), toUser.getUsername());
+        followerRepository.addFollowRelationship(fromUser.getEmail(), toUser.getEmail());
     }
 
     public void removeFollowRelationship(User[] users) {
         User fromUser = users[0];
         User toUser = users[1];
-        followerRepository.removeFollowRelationship(fromUser.getUsername(), toUser.getUsername());
+        followerRepository.removeFollowRelationship(fromUser.getEmail(), toUser.getEmail());
     }
 }
