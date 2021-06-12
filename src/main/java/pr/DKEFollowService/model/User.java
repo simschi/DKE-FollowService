@@ -9,14 +9,14 @@ public class User {
 
     @Id @GeneratedValue
     private Long id;
-    private String email;
+    private String username;
 
     public User() {
 
     }
 
-    public User(String email) {
-        this.email = email;
+    public User(String username) {
+        this.username = username;
     }
 
     public Long getId() {
@@ -27,11 +27,11 @@ public class User {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return this.username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

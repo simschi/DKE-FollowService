@@ -1,6 +1,8 @@
 package pr.DKEFollowService.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pr.DKEFollowService.model.User;
 import pr.DKEFollowService.service.FollowerService;
@@ -34,9 +36,12 @@ public class FollowerController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/newUser")
-    public void createNewUser(@RequestBody User newUser){
-        System.out.println("creating new user");
+    public ResponseEntity<String> createNewUser(@RequestBody String username){
+        System.out.println("creating new user - "+username);
+        User newUser = new User();
+        newUser.setUsername(username);
         followerService.createNewUser(newUser);
+        return new ResponseEntity<>("Successful", HttpStatus.CREATED);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
@@ -51,5 +56,10 @@ public class FollowerController {
     public void removeFollowRelationship(@RequestBody User[] users){
         System.out.println("removing relationship");
         followerService.removeFollowRelationship(users);
+    }
+
+    @PostMapping("/test")
+    public void testConnection(@RequestBody User user) {
+        System.out.println("Called from auth0");
     }
 }
