@@ -8,7 +8,6 @@ import pr.DKEFollowService.model.User;
 import pr.DKEFollowService.service.FollowerService;
 
 import java.util.Collection;
-import java.util.List;
 
 @RestController
 @RequestMapping("followservice")
@@ -46,14 +45,14 @@ public class FollowerController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/addRelationship")
-    public void addFollowRelationship(@RequestBody User[] users){
+    public void addFollowRelationship(@RequestBody User[] users) {
         System.out.println("adding relationship");
         followerService.addFollowRelationship(users);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/removeRelationship")
-    public void removeFollowRelationship(@RequestBody User[] users){
+    public void removeFollowRelationship(@RequestBody User[] users) {
         System.out.println("removing relationship");
         followerService.removeFollowRelationship(users);
     }

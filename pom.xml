@@ -15,6 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<neo4j-java-driver-spring-boot-starter.version>4.0.0.1</neo4j-java-driver-spring-boot-starter.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -30,6 +31,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.neo4j.driver</groupId>
+			<artifactId>neo4j-java-driver-spring-boot-starter</artifactId>
+			<version>${neo4j-java-driver-spring-boot-starter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-graphics</artifactId>
+			<version>13</version>
 		</dependency>
 	</dependencies>
 
