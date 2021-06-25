@@ -56,9 +56,4 @@ public class FollowerController {
         System.out.println("removing relationship");
         followerService.removeFollowRelationship(users);
     }
-
-    @PostMapping("/test")
-    public void testConnection(@RequestBody User user) {
-        System.out.println("Called from auth0");
-    }
 }

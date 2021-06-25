@@ -23,4 +23,6 @@ public interface FollowerRepository extends Neo4jRepository<User, Long> {
     @Query("MATCH (a:User)-[f:FOLLOWS]->(b:User) WHERE a.username = $fromUser AND b.username = $toUser DELETE f")
     void removeFollowRelationship(@Param("fromUser") String fromUserUsername,
                                   @Param("toUser") String toUserUsername);
+
+    boolean existsByUsername(String username);
 }
